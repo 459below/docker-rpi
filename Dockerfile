@@ -20,8 +20,6 @@ RUN apt update \
   psmisc \
   qemu-user-static \
   rsync \
-  ssl \
-  ssl-dev \
   sudo \
   unzip \
   whois
