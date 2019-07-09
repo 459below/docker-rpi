@@ -23,3 +23,7 @@ RUN apt update \
   sudo \
   unzip \
   whois
+
+ADD build-kernel.sh /root/ 
+ADD build-kernel-rpi1.sh /root/
+ADD build-module.sh /root/
