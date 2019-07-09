@@ -6,7 +6,6 @@ RUN apt update \
   binfmt-support \
   bmap-tools \
   build-essential \
-  cc1 \
   cpio \
   cpp \
   dbus \
