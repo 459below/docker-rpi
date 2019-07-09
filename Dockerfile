@@ -17,7 +17,6 @@ RUN apt update \
   kmod \
   libelf-dev \
   libssl-dev \
-  openssl-dev \
   psmisc \
   qemu-user-static \
   rsync \
