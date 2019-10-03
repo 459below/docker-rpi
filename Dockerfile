@@ -13,6 +13,7 @@ RUN apt update \
   debian-archive-keyring \
   debootstrap \
   dosfstools \
+  flex \
   g++ \
   git-core \
   kmod \
