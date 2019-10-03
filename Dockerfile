@@ -25,6 +25,8 @@ RUN apt update \
   sudo \
   unzip \
   whois
+  
+RUN git clone --depth 1 https://github.com/raspberrypi/tools.git /root/tools
 
 ADD build-kernel.sh /root/ 
 ADD build-kernel-rpi1.sh /root/
