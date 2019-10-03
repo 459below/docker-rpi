@@ -1,9 +1,18 @@
 #!/bin/bash
-export PATH=$PATH:/root/building/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
+set -e
+VERSION=$1
+cd /root/building
+
+if [ ! -d linux-rpi-$VERSION ] ; then
+        wget https://github.com/raspberrypi/linux/archive/rpi-$VERSION.zip
+        unzip rpi-$VERSION.zip
+fi
+
+export PATH=$PATH:/root/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
 export ARCH=arm
 export CROSS_COMPILE=arm-linux-gnueabihf-
 export KERNEL=kernel7
-cd linux
+cd linux-rpi-$VERSION
 make mrproper
 make bcm2709_defconfig
 sed -i \
@@ -37,8 +46,8 @@ sed -i \
 -e "s/\(^CONFIG_W1_CON.*\=\).*/\1y/" \
 -e "s/\(^CONFIG_BTRFS.*\=\).*/\1y/" \
 -e "s/\(^CONFIG_USB_LED_TRIG.*\=\).*/\1y/" \
+-e "s/\(^CONFIG_USB_GSPCA_OV534.*\=\).*/\1y/" \
 ".config"
-#make -j2 Image modules scripts dtbs deb-pkg
 make -j8 Image
 make -j8 modules
 make -j8 scripts
