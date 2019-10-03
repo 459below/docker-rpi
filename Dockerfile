@@ -4,6 +4,7 @@ RUN apt update \
   && apt install -y \
   bc \
   binfmt-support \
+  bison \
   bmap-tools \
   build-essential \
   cpio \
